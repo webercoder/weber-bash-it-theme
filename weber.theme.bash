@@ -17,7 +17,7 @@ THEME_SHOW_CLOCK_CHAR="false"
 USER=`whoami`
 
 function prompt_command() {
-    PS1="\n${green}\w${reset_color} (${USER} \D{%F %T}) $(scm_prompt_char_info)${reset_color}\n${green}\$${reset_color} "
+    PS1="\n${green}\w${reset_color} (${USER} \D{%F %T}) $(scm_prompt_char_info)${reset_color}\n${green}💰 ${reset_color} "
 }
 
 THEME_SHOW_CLOCK_CHAR=${THEME_SHOW_CLOCK_CHAR:-"true"}
