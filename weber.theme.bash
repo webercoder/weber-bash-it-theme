@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 SCM_THEME_PROMPT_DIRTY=" ${red}✗"
-SCM_THEME_PROMPT_CLEAN=" ${bold_green}✓"
-SCM_THEME_PROMPT_PREFIX=" ${green}|"
-SCM_THEME_PROMPT_SUFFIX="${green}|"
+SCM_THEME_PROMPT_CLEAN=" ${cyan}✓"
+SCM_THEME_PROMPT_PREFIX=" ${cyan}|"
+SCM_THEME_PROMPT_SUFFIX="${cyan}|"
 
 GIT_THEME_PROMPT_DIRTY=" ${red}✗"
-GIT_THEME_PROMPT_CLEAN=" ${bold_green}✓"
-GIT_THEME_PROMPT_PREFIX=" ${green}|"
-GIT_THEME_PROMPT_SUFFIX="${green}|"
+GIT_THEME_PROMPT_CLEAN=" ${cyan}✓"
+GIT_THEME_PROMPT_PREFIX=" ${cyan}|"
+GIT_THEME_PROMPT_SUFFIX="${cyan}|"
 
 RVM_THEME_PROMPT_PREFIX="|"
 RVM_THEME_PROMPT_SUFFIX="|"
@@ -17,7 +17,9 @@ THEME_SHOW_CLOCK_CHAR="false"
 USER=`whoami`
 
 function prompt_command() {
-    PS1="\n${green}\w${reset_color} (${USER} \D{%F %T}) $(scm_prompt_char_info)${reset_color}\n${green}💰 ${reset_color} "
+	CURRENT_TIME=`date '+%-l:%M%p'`
+	CURRENT_WEATHER=`cat /Users/mweber/current-weather.txt | sed -e 's/^.*: //g'`
+    PS1="\n${CURRENT_WEATHER} ${CURRENT_TIME} ${cyan}\w${reset_color} $(scm_prompt_char_info)${reset_color}\n${cyan}\$${reset_color} "
 }
 
 THEME_SHOW_CLOCK_CHAR=${THEME_SHOW_CLOCK_CHAR:-"true"}
