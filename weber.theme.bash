@@ -18,8 +18,7 @@ USER=`whoami`
 
 function prompt_command() {
 	CURRENT_TIME=`date '+%b %-e @ %-l:%M%p'`
-	CURRENT_WEATHER=`cat /Users/mweber/current-weather.txt | sed -e 's/^.*: //g'`
-    PS1="\n${CURRENT_WEATHER} ${CURRENT_TIME} ${cyan}\w${reset_color} $(scm_prompt_char_info)${reset_color}\n${cyan}\$${reset_color} "
+    PS1="\n${CURRENT_TIME} ${cyan}\w${reset_color} $(scm_prompt_char_info)${reset_color}\n${cyan}\$${reset_color} "
 }
 
 THEME_SHOW_CLOCK_CHAR=${THEME_SHOW_CLOCK_CHAR:-"true"}
