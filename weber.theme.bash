@@ -17,8 +17,11 @@ THEME_SHOW_CLOCK_CHAR="false"
 USER=`whoami`
 
 function prompt_command() {
-	CURRENT_TIME=`date '+%b %-e @ %-l:%M%p'`
-    PS1="\n${CURRENT_TIME} ${cyan}\w${reset_color} $(scm_prompt_char_info)${reset_color}\n${cyan}\$${reset_color} "
+    CURRENT_TIME=`date '+%m/%d.%-l:%M%p'`
+    KUBE_CTX=`kubectl config current-context`
+    KUBE_NS=`kubectl config view --minify | grep namespace: | awk -F "namespace: " '{print \$2}'`
+
+    PS1="\n${CURRENT_TIME} ${green}[⎈:${KUBE_CTX}:${KUBE_NS}]${reset_color} ${cyan}\w${reset_color} $(scm_prompt_char_info)${reset_color}\n${cyan}\$${reset_color} "
 }
 
 THEME_SHOW_CLOCK_CHAR=${THEME_SHOW_CLOCK_CHAR:-"true"}
